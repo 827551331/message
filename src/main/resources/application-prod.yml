@@ -1,0 +1,19 @@
+server:
+  port: 10003
+  servlet:
+    session:
+      timeout: 1440m
+
+
+
+spring:
+  servlet:
+    multipart:
+      max-file-size: 1024MB
+      max-request-size: 2048MB
+  # DataSource Config
+  datasource:
+    type: com.zaxxer.hikari.HikariDataSource
+    url: jdbc:mysql://47.98.151.241:3306/hdfs?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    username: root
+    password: Juice_cloud=123
