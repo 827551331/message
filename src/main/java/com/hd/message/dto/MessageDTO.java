@@ -47,16 +47,16 @@ public class MessageDTO {
      */
     private MessageType messageType;
 
-    /**
-     * 消息发送类型（群发/单发）
-     */
-    private MessageSendType messageSendType;
-
     //--------------
 
     /**
      * 凭证
      */
     private String token;
+
+    /**
+     * 消息记录ID
+     */
+    private Integer messageRecord_Id;
 
 }

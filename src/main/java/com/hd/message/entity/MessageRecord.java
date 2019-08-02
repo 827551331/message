@@ -1,19 +1,25 @@
 package com.hd.message.entity;
 
-import com.hd.message.dto.MessageSendStatus;
-import com.hd.message.dto.MessageSendType;
 import com.hd.message.dto.MessageType;
 import lombok.Data;
 
+import javax.persistence.*;
 import java.util.Date;
 
 
+/**
+ * 消息记录
+ */
 @Data
-public class Message {
+@Entity
+@Table(name = "message_record")
+public class MessageRecord {
     /**
      * 主键ID
      */
-    private String id;
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
 
     /**
      * 业务系统中的ID
@@ -23,7 +29,7 @@ public class Message {
     /**
      * 目标人员
      */
-    private String[] targetUsers;
+    private String targetUsers;
 
     /**
      * 标题
@@ -41,11 +47,6 @@ public class Message {
     private String link;
 
     /**
-     * 处理的接口
-     */
-    private String dealApi;
-
-    /**
      * 消息创建时间
      */
     private Date messageCreateTime;
@@ -53,20 +54,7 @@ public class Message {
     /**
      * 消息类型(系统消息/短信/邮件)
      */
+    @Enumerated(EnumType.STRING)
     private MessageType messageType;
 
-    /**
-     * 消息发送类型（群发/单发）
-     */
-    private MessageSendType messageSendType;
-
-    /**
-     * 发送人员
-     */
-    private String messageSendTarget;
-
-    /**
-     * 发送结果
-     */
-    private MessageSendStatus messageSendStatus;
 }
