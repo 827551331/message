@@ -25,7 +25,7 @@ import java.util.Observer;
  *
  * @author wang_yw
  */
-@Component("MessageProvider1")
+@Component
 public class SMSMessageProvider implements Observer, MessageDelivery {
 
     private final Logger logger = LoggerFactory.getLogger(SMSMessageProvider.class);

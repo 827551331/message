@@ -26,8 +26,12 @@ public class MessageQueue {
     }
 
 
-    // 消费消息
-    public static MessageDTO consume() {
+    /**
+     * 同步消费消息
+     *
+     * @return
+     */
+    public static synchronized MessageDTO consume() {
         MessageDTO message = null;
         try {
             message = basket.take();

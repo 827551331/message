@@ -19,5 +19,7 @@ spring:
     password: Juice_cloud=123
 
 
+send-thread-num: 10
+
 #系统集成地址
 integration-url: http://192.168.100.132:8081

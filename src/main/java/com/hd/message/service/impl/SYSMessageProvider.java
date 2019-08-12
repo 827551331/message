@@ -20,7 +20,7 @@ import java.util.Observer;
  *
  * @author wang_yw
  */
-@Component("MessageProvider2")
+@Component
 public class SYSMessageProvider implements Observer, MessageDelivery {
 
     private final Logger logger = LoggerFactory.getLogger(SYSMessageProvider.class);

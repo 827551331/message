@@ -19,6 +19,7 @@ spring:
 #  jpa:
 #    show-sql: true
 
+send-thread-num: 10
 
 #系统集成地址
 integration-url: http://192.168.100.132:8081

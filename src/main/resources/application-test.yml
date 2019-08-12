@@ -16,9 +16,17 @@ spring:
     url: jdbc:mysql://192.168.8.158:3306/message?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: root
+  mail:
+    host: smtp.qq.com
+    username: 827551331@qq.com
+    password: xecwocuoixsgbdbc
+    default-encoding: utf-8
 #  jpa:
 #    show-sql: true
 
+
+
+send-thread-num: 10
 
 #系统集成地址
 integration-url: http://192.168.100.132:8081
