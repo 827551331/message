@@ -16,7 +16,7 @@ import org.springframework.data.domain.Example;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Date;
+import java.util.*;
 
 
 @RestController
@@ -75,8 +75,8 @@ public class MessageController {
     }
 
     @ApiOperation("消息发送记录查询")
-    @GetMapping("/query")
-    public ResponseData query(@RequestParam Integer messageId) {
+    @GetMapping("/{messageId}/query")
+    public ResponseData query(@PathVariable Integer messageId) {
         if (messageId == null) {
             return ResponseData.getInstance("1001", "参数异常", null);
         }
@@ -95,7 +95,10 @@ public class MessageController {
         Example<MessageSendRecord> example = Example.of(messageSendRecord);
         messageQueryDTO.setMessageSendRecord(messageSendRecordRepository.findAll(example));
 
+        HashMap hashMap = new HashMap();
+        String.valueOf()
 
         return ResponseData.getInstance("9999", "ok", messageQueryDTO);
     }
+
 }
