@@ -23,7 +23,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * 短息通知服务提供者(观察者)
+ * 邮件通知服务提供者(观察者)
  *
  * @author wang_yw
  */

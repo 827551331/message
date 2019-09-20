@@ -13,11 +13,18 @@ spring:
   # DataSource Config
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://47.98.151.241:3306/message?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://192.168.100.132:3306/message?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
-    password: Juice_cloud=123
+    password: 123456
+  mail:
+    host: smtp.qq.com
+    username: 827551331@qq.com
+    password: xecwocuoixsgbdbc
+    default-encoding: utf-8
 #  jpa:
 #    show-sql: true
+
+
 
 send-thread-num: 10
 

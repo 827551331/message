@@ -94,10 +94,6 @@ public class MessageController {
         messageSendRecord.setMessageRecord_Id(messageId);
         Example<MessageSendRecord> example = Example.of(messageSendRecord);
         messageQueryDTO.setMessageSendRecord(messageSendRecordRepository.findAll(example));
-
-        HashMap hashMap = new HashMap();
-        String.valueOf()
-
         return ResponseData.getInstance("9999", "ok", messageQueryDTO);
     }
 
