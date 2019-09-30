@@ -13,10 +13,16 @@ import java.util.concurrent.BlockingQueue;
  */
 public class MessageQueue {
 
-    //初始化消息队列
-    private static BlockingQueue<MessageDTO> basket = new ArrayBlockingQueue<MessageDTO>(5000);
+    /**
+     * 初始化消息队列
+     */
+    private static BlockingQueue<MessageDTO> basket = new ArrayBlockingQueue<MessageDTO>(1 << 12);
 
-    // 生产消息
+    /**
+     * 生产消息
+     *
+     * @param messageDTO
+     */
     public static void produce(MessageDTO messageDTO) {
         try {
             basket.put(messageDTO);

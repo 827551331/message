@@ -84,10 +84,9 @@ public class HttpClientUtil {
             //创建httppost
             httpclient = HttpClients.createDefault();
             HttpPost httpPost = new HttpPost(url);
-            httpPost.addHeader(HTTP.CONTENT_TYPE, "application/json");
+            httpPost.addHeader(HTTP.CONTENT_TYPE, "application/json;charset=utf-8");
             //参数
             StringEntity se = new StringEntity(param);
-            se.setContentEncoding("UTF-8");
             httpPost.setEntity(se);
             response = httpclient.execute(httpPost);
             //解析返结果

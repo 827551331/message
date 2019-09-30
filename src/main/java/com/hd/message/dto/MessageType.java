@@ -7,5 +7,6 @@ public enum MessageType {
     ALLMSG,  //全部类型
     SYSMSG,  //系统消息
     SMSMSG, //短信消息
-    MAILMSG //邮件消息
+    MAILMSG, //邮件消息
+    APPMSG //app通知消息
 }

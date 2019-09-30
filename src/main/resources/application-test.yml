@@ -13,7 +13,7 @@ spring:
   # DataSource Config
   datasource:
     type: com.zaxxer.hikari.HikariDataSource
-    url: jdbc:mysql://localhost:3306/message?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
+    url: jdbc:mysql://192.168.100.132:3306/message?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf8&useSSL=false
     username: root
     password: 123456
   mail:
@@ -29,4 +29,4 @@ spring:
 send-thread-num: 10
 
 #系统集成地址
-integration-url: http://192.168.100.132:8081
+integration-url: http://119.146.81.254:48181

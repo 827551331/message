@@ -28,5 +28,7 @@ spring:
 
 send-thread-num: 10
 
-#系统集成地址
-integration-url: http://192.168.100.132:8081
+#系统集成地址[132]
+#integration-url: http://192.168.100.132:8081
+#系统集成地址[惠阳]
+integration-url: http://119.146.81.254:48181

@@ -1,10 +1,7 @@
 package com.hd.message.init;
 
 import com.hd.message.dto.MessageDTO;
-import com.hd.message.service.impl.MailMessageProvider;
-import com.hd.message.service.impl.MessageObserver;
-import com.hd.message.service.impl.SMSMessageProvider;
-import com.hd.message.service.impl.SYSMessageProvider;
+import com.hd.message.service.impl.*;
 import com.hd.message.util.SpringContextUtil;
 
 /**
@@ -26,6 +23,7 @@ public class ConsumeThread implements Runnable {
                 messageObserver.registerObserver(SpringContextUtil.getBean(SYSMessageProvider.class));
                 messageObserver.registerObserver(SpringContextUtil.getBean(SMSMessageProvider.class));
                 messageObserver.registerObserver(SpringContextUtil.getBean(MailMessageProvider.class));
+                messageObserver.registerObserver(SpringContextUtil.getBean(APPMessageProvider.class));
                 messageObserver.setChanged();
                 messageObserver.notifyAllObserver(messageDTO);
             } catch (Exception e) {

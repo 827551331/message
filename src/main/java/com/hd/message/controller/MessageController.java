@@ -33,6 +33,7 @@ public class MessageController {
     @PostMapping("/send")
     public ResponseData send(@RequestBody MessageDTO messageDTO) {
 
+        //参数校验
         if (StringUtils.isEmpty(messageDTO.getTitle())) {
             return ResponseData.getInstance("1001", "title不能为空", null);
         }
@@ -50,6 +51,7 @@ public class MessageController {
             return ResponseData.getInstance("1001", "TargetUsers不能为空", null);
         }
 
+        //消息记录
         MessageRecord messageRecord = new MessageRecord();
         CglibUtil.copyObject(messageDTO, messageRecord);
         StringBuilder sb = new StringBuilder();
@@ -61,7 +63,7 @@ public class MessageController {
         }
         messageRecord.setTargetUsers(sb.toString());
         messageRecord.setMessageCreateTime(new Date());
-        //记录消息
+        //记录（存储）消息
         MessageRecord record = messageRecordRepository.save(messageRecord);
 
         //准备发送
