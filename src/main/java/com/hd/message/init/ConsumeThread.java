@@ -21,7 +21,7 @@ public class ConsumeThread implements Runnable {
                 //从上线文中取出对象的对象
                 MessageObserver messageObserver = SpringContextUtil.getBean(MessageObserver.class);
                 messageObserver.registerObserver(SpringContextUtil.getBean(SYSMessageProvider.class));
-                messageObserver.registerObserver(SpringContextUtil.getBean(SMSMessageProvider.class));
+                messageObserver.registerObserver(SpringContextUtil.getBean(HYSMSMessageProvider.class));
                 messageObserver.registerObserver(SpringContextUtil.getBean(MailMessageProvider.class));
                 messageObserver.registerObserver(SpringContextUtil.getBean(APPMessageProvider.class));
                 messageObserver.setChanged();
