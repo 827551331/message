@@ -24,7 +24,7 @@ import java.util.Observable;
 import java.util.Observer;
 
 /**
- * 短息通知服务提供者(观察者)
+ * （惠阳短信平台）短息通知服务提供者(观察者)
  *
  * @author wang_yw
  */
