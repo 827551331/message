@@ -16,6 +16,8 @@ import org.springframework.data.domain.Example;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.*;
 
 
@@ -43,12 +45,16 @@ public class MessageController {
         if (StringUtils.isEmpty(messageDTO.getMessageType())) {
             return ResponseData.getInstance("1001", "MessageType不能为空", null);
         }
-        if (StringUtils.isEmpty(messageDTO.getSourceId())) {
-            return ResponseData.getInstance("1001", "SourceId不能为空", null);
-        }
+//        if (StringUtils.isEmpty(messageDTO.getSourceId())) {
+//            return ResponseData.getInstance("1001", "SourceId不能为空", null);
+//        }
         String[] targets = messageDTO.getTargetUsers();
         if (targets == null || targets.length == 0) {
             return ResponseData.getInstance("1001", "TargetUsers不能为空", null);
+        }
+
+        if (StringUtils.isEmpty(messageDTO.getSourceId())) {
+            messageDTO.setSourceId(String.valueOf(LocalDateTime.now().toInstant(ZoneOffset.of("+8")).toEpochMilli()));
         }
 
         //消息记录

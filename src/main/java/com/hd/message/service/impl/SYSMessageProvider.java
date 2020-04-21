@@ -12,6 +12,8 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
+import java.time.LocalDateTime;
+import java.time.ZoneOffset;
 import java.util.Observable;
 import java.util.Observer;
 
@@ -34,13 +36,24 @@ public class SYSMessageProvider implements Observer, MessageDelivery {
         JSONObject param = new JSONObject();
         param.put("access_token", messageDTO.getToken());
         param.put("type", "alarm");
-        param.put("event", JSONObject.toJSON(messageDTO));
+
+        JSONObject events = new JSONObject();
+        events.put("sourceid", messageDTO.getSourceId());
+        events.put("users", messageDTO.getTargetUsers());
+        events.put("title", messageDTO.getTitle());
+        events.put("content", messageDTO.getContent());
+        events.put("link", messageDTO.getLink());
+        events.put("dealapi", "");
+        events.put("extend", "");
+        param.put("event", events);
+
         String url = uniwater_url + "/hdl/uniwater/v1.0/event/push.json";
-        ResponseEntity<Object> responseEntity = HttpClientUtil.postRequest(url, param.toJSONString());
+        ResponseEntity<Object> responseEntity = HttpClientUtil.doPostRequest(url, param.toJSONString());
         JSONObject result = JSONObject.parseObject(responseEntity.getBody().toString());
         if (result.getInteger("Code") == 0) {
             logger.info("系统消息推送成功，消息标题：{}，消息ID：{}", messageDTO.getTitle(), result.getString("Response"));
         } else {
+            logger.error("请求参数：{}", param.toJSONString());
             logger.error("系统消息推送失败，消息标题：{}，失败原因：{}", messageDTO.getTitle(), result.getString("Message"));
         }
     }

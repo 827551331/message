@@ -29,4 +29,9 @@ spring:
 send-thread-num: 10
 
 #系统集成地址
-integration-url: http://119.146.81.254:48181
+integration-url: http://192.168.100.132:8081
+
+#惠阳短信平台集成信息
+sms-url: http://192.192.220.51/smsN/SmsSend.ashx
+sms-appid: ECD0431DA277495481561BD814169EAF
+sms-secret: FF5AD8653A564E3F92C168ADD33BD429
